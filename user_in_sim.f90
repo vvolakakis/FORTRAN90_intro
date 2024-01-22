@@ -1,4 +1,4 @@
-program DerivedTypeExample
+program simpleex
   implicit none
 
   type :: Person
@@ -14,7 +14,7 @@ program DerivedTypeExample
   print *, "Enter the number of people:"
   read *, num_people
 
-  allocate(people(num_people))   !so you have to allocate memory for the array you are going to use, no help here, just us against the machine
+  allocate(people(num_people))   !so you have to allocate memory for the array you are going to use, nothing is easy here folks
 
   do i = 1, num_people
     print *, "Enter details for person ", i
@@ -28,5 +28,5 @@ program DerivedTypeExample
 
   deallocate(people) !dont forget to deallocate the captured memory
 
-end program DerivedTypeExample
+end program simpleex
 

@@ -1,15 +1,13 @@
-program Calculator
+program kompiouteraki
   real(8) :: num1, num2, result
   integer :: choice
 
-  ! Get input from user
-  write(*,*) "Enter the first number:"
+  write(*,*) "Enter the first number:" !how to 
   read(*,*) num1
 
   write(*,*) "Enter the second number:"
   read(*,*) num2
 
-  ! Display menu
   write(*,*) "Select operation:"
   write(*,*) "1. Addition"
   write(*,*) "2. Subtraction"
@@ -18,7 +16,6 @@ program Calculator
   write(*,*) "Enter choice (1-4):"
   read(*,*) choice
 
-  ! Perform calculation based on user choice
   select case (choice)
     case (1)
       result = num1 + num2
@@ -40,4 +37,4 @@ program Calculator
       write(*,*) "Invalid choice"
   end select
 
-end program Calculator
+end program kompiouteraki
