@@ -47,4 +47,4 @@ Setting up our OS.
 
   When we have installed our compiler, a text editor will be needed. Some options: Atom, Emacs, NotePad++, SublimeText, Vim and Neovim, Visual Studio Code, Notepad3.
 
-  We could either use our Command Promt (Command Window - cmd) to compile first and then run our code. However, the use of IDEs (Integrated Development Environment) is also an option. Some options provided by (1) are the following: AbsoftTools, Visual Studio, Code::Blocks, Eclipse-Photran, Geany, NAG Fortran Builder, among others.
+  We could either use our Command Prompt (Command Window - cmd) to compile first and then run our code. However, the use of IDEs (Integrated Development Environment) is also an option. Some options provided by (1) are the following: AbsoftTools, Visual Studio, Code::Blocks, Eclipse-Photran, Geany, NAG Fortran Builder, among others.
