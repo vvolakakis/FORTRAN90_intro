@@ -23,9 +23,9 @@ Setting up our OS.
     
       http://www.equation.com, provides 32 and 64-bit x86 executables for GCC version 12.1
 
-      TDM GCC, provides 32 and 64-bit x86 executables for GCC version 10.3
+      https://jmeubank.github.io/tdm-gcc/articles/2021-05/10.3.0-release, TDM GCC, provides 32 and 64-bit x86 executables for GCC version 10.3
 
-      MinGW-w64 provides a 64-bit x86 executable for GCC version 12.2
+      https://www.mingw-w64.org/downloads/#mingw-builds, MinGW-w64 provides a 64-bit x86 executable for GCC version 12.2
 
     macOS:
 
@@ -44,7 +44,25 @@ Setting up our OS.
         Fink:
 
           GNU-gcc Package, go to: (https://pdb.finkproject.org/pdb/browse.php?summary=GNU+Compiler+Collection+Version)https://pdb.finkproject.org/pdb/browse.php?summary=GNU+Compiler+Collection+Version
+    
+    Linux
 
-  When we have installed our compiler, a text editor will be needed. Some options: Atom, Emacs, NotePad++, SublimeText, Vim and Neovim, Visual Studio Code, Notepad3.
+        Check whether you have gfortran already installed
+
+        which gfortran
+        
+            If nothing is returned then gfortran is not installed. To install gfortran type:
+
+        sudo apt install gfortran
+            
+            to check what version was installed type:
+
+        gfortran --version
+            
+            You can install multiple versions up to version 10 (on Ubuntu 22.04) by typing the version number immediately after “gfortran”, e.g.:
+        
+        sudo apt install gfortran-8
+  
+  When our compiler is installed, a text editor will be needed. Some options: Atom, Emacs, NotePad++, SublimeText, Vim and Neovim, Visual Studio Code, Notepad3.
 
   We could either use our Command Prompt (Command Window - cmd) to compile first and then run our code. However, the use of IDEs (Integrated Development Environment) is also an option. Some options provided by (1) are the following: AbsoftTools, Visual Studio, Code::Blocks, Eclipse-Photran, Geany, NAG Fortran Builder, among others.
