@@ -7,7 +7,7 @@ module modulaki !simple way to go into modules. Modules could be compared with f
 
   contains !used to define internal subprograms, like a subroutine or  a function within the main program or a module
 
-  subroutine calculate_average(data, n, boom)
+  subroutine calculate_average(data, n, boom) !subroutines are very similar to functions, but you can use them when there is nothing to be returned by the function (if its a function, it needs to be returning something)
     real(kind=8), intent(in), dimension(:) :: data !here folks we have to declare everything, even the air we breath needs to be declared (like C)
 	!But lets see what the hell line 11 does: 
 	!real(kind=8) declares data as a real variable with 8-byte precision (double precision) - no need for kind, and if we just have real, its singe precision
@@ -40,7 +40,7 @@ program moduless
   real(kind=8) :: mpam
   integer :: y, alt, everest, rockies
   character(len=50) :: fav_place
- 
+  
   print *, "provide the number that you want to calculate its factorial"
   read *, y
   print *, "function check", factorial(y)
@@ -71,9 +71,41 @@ program moduless
 	print *, 'It is Everest, wow'
   end if
   
-end program moduless
+  call arrays() !calling the subroutine averages, which has no input from the main program, therefore ()
+  
+  contains !need to put the subroutine at the end, and the call of the subroutine before, since whatever is below the contains sections cannot be an external operation, but only related to the subroutine
+	subroutine arrays()
+		implicit none
+		!lets create a couple of arrays as well. Many ways to handle them, just a few here, only schratching the surface again (sorry for any vocab mistakes if any)
+		!static memory allocation
+		integer, dimension(4) :: arr_ena !1-d array declaration, could also be: integer :: arr_ena(10)
+		integer, dimension(4, 4) :: arr_duo !2-d array declaration
+		
+		!dynamic memory allocation
+		integer, allocatable :: arr_one2(:)
+		integer, allocatable :: arr_duo2(:,:)
+		
+		character(:), allocatable :: name_f!with strings pretty much the same idea, can allocate "on the way" though here
+		character(:), allocatable :: name_l
 
-integer function factorial(k) !there is a difference compared to the above function
+		allocate(arr_one2(4)) !dynamic yes, but still we have to allocate at some point in the code the dimensions, so it can still be a bit frustrating
+		allocate(arr_duo2(4,4))
+		
+		arr_one2 = [5,7,32,4]  !just assigning some numbers, another way: array1 = [(i, i = 1, 4)]
+		
+		print *, arr_one2
+		deallocate(arr_one2) !need to deallocate the memory, i.e. free the memory back (not the end of the world if you dont but..)
+		deallocate(arr_duo2)
+		
+		allocate(character(6) :: name_f) 
+		name_f = 'Nobody' !thats one way, the other way, simpler and easier can be seen below, allocation on the way
+		name_l = 'Someone' 
+		print *, name_f//' '//name_l
+	end subroutine arrays
+end program moduless !can't have multiple main programs, but you can have multiple modules, functions, etc.
+
+!time for a function
+integer function factorial(k) !need to declare the nature of the function, what is being given back from the function, name same as the return
 	implicit none
 	integer, intent(in) :: k
 	integer :: i, bamboom
